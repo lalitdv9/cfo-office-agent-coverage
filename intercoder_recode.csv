@@ -1,0 +1,25 @@
+bibkey,leaf,my_code,reason
+auditcopilot2025,1.1,P,Detects anomalies in existing journal entries not preparation
+cfagentbench2026,7.3,F,Payroll and certified-payroll compliance is executable first-class domain
+bluefin2026,2.5,F,Building and modifying financial workbooks is benchmark's entire object
+finch2025,1.2,P,Spreadsheet consistency-checking not bank or subledger reconciliation workflow
+finbalance2026,1.1,F,Produces complete cited journal entries from source documents
+enterprisearena2026,3.1,P,Liquidity survival central but abstracted to fund-raising lever
+closeorch2026,1.2,P,Reconciliation agents in catalog but their outputs mocked
+cfagentbench2026,7.2,P,Owner pay-application billing tasks partial order-to-cash coverage
+bigfinancebench2026,6.1,P,IB/PE analyst research valuation embedded but not explicit
+cfagentbench2026,4.2,P,1099-NEC preparation is one slice of tax compliance
+orgmemp2p2026,9.2,P,Governs agent procedural-memory layer not financial data
+bluefin2026,6.1,P,DCF and merger model builds valuation as spreadsheet modeling
+wealthmgmt2025,2.4,P,Lightweight quarterly stakeholder update not board reporting pack
+financeagentbench2025,6.1,P,M&A firepower calculation example no valuation model builds
+enterprisearena2026,1.4,P,book_closing is a coarse periodic action no orchestration
+enterprisearena2026,3.3,P,fund_raising_request is coarse capital raising partial debt coverage
+sheetagent2024,7.3,P,Salary-sheet workbook manipulated generically no payroll process
+financeqa2025,1.5,P,Lease and non-GAAP conventions tested analyst-side not preparer
+sheetagent2024,6.1,N,No valuation workbooks or tasks generic sheets only
+finch2025,1.1,N,Spreadsheet workflows no journal-entry preparation or posting
+financebench2023,5.2,N,Investor-side filings QA no IR guidance production
+bigfinancebench2026,4.2,N,Financial-research tasks no tax compliance content present
+financebench2023,2.2,N,Historical filings QA no forecasting or projection tasks
+sheetagent2024,2.2,P,Budget-forecast workbook manipulated generically ambiguous forecasting overlap only
