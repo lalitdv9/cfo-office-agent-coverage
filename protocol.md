@@ -1,7 +1,7 @@
 # PRISMA Search Protocol — AI Agents for the Office of the CFO
 
 **Version:** 1.0 — registered 2026-07-16, BEFORE any search execution.
-**Author of record:** Claude (AI research assistant), executing INSTRUCTIONS.md on behalf of Lalit.
+**Author of record:** Anonymous research team.
 **Standard:** PRISMA 2020 (Page et al., BMJ 2021) adapted for a rapid CS/NLP survey.
 
 ## 1. Research questions
@@ -79,7 +79,7 @@ n_screened_in). Families (expanded during execution as terms emerge):
 1. **Identification:** all query hits recorded; duplicates removed by arXiv ID/DOI/title match.
 2. **Title/abstract screen:** each candidate → `screening.csv` with `include_ta` ∈ {yes,no,maybe} + one-line reason keyed to I/E criteria.
 3. **Full-text screen:** candidates passing (2) get their landing page + full text fetched; final `include` decision with reason. Every included paper's ID verified to resolve (title on landing page matches title in corpus CSV).
-4. **Corpus entry:** included papers → `corpus/included_papers.csv` (bibkey, title, authors, year, venue, arxiv_id/doi, url, category, preprint flag).
+4. **Corpus entry:** included papers → `included_papers.csv` (bibkey, title, authors, year, venue, arxiv_id/doi, url, category, preprint flag).
 5. **Flow accounting:** PRISMA 2020 numbers (identified / deduplicated / screened / full-text assessed / included, with exclusion reasons at each stage) → `prisma_flow.md`.
 
 Single-screener design (one AI screener, human review at Checkpoint 1) — disclosed in the
@@ -90,7 +90,7 @@ public search log and the human checkpoint.
 
 Search explicitly for surveys/position papers covering agents + {CFO, corporate finance
 function, accounting, FP&A, financial close, controllership} in 2025–2026. If any is found
-that organizes the CFO-office space (not markets, not audit-only): STOP per INSTRUCTIONS.md
+that organizes the CFO-office space (not markets, not audit-only): STOP per the project brief
 §2.4, document in PROGRESS.md, and hand the pivot decision to the human.
 
 ## 9. Expected corpus size

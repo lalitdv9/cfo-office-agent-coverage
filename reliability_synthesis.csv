@@ -1,8 +1,8 @@
-bibkey,basic,composed,delta,construct
-cfagentbench2026,pass1 0.67,pass5 0.38,-43\% of wins,repetition
-finmaster2025,basic >90\%,multi-step $\sim$40\%,$\sim$-50pp,composition
-finmaster2025b,1-metric 58\%,multi-metric 37\%,-21pp,metric composition
-finbalance2026,entries replayed 0.47,own statement 0.07,up to -41pp,aggregating own entries
-workstreambench2026,overall 69.1,difficulty-4 53.4,-15.7,task difficulty
-enterprisearena2026,human 100\%,agents 16--80\%,up to -84pp,long horizon
-bigfinancebench2026,rubric 58.8\%,answer 44.3\%,-14.5pp,process vs.\ outcome
+bibkey,basic,composed,delta,construct,include_in_table
+cfagentbench2026,pass1 0.67,pass5 0.38,-43\% of wins,repetition,yes
+finmaster2025,basic >90\%,multi-step $\sim$40\%,$\sim$-50pp,composition,yes
+finmaster2025b,1-metric 58\%,multi-metric 37\%,-21pp,metric composition,yes
+finbalance2026,entries replayed 0.47,own statement 0.07,up to -41pp,aggregating own entries,yes
+workstreambench2026,overall 69.1,difficulty-4 53.4,-15.7,task difficulty,yes
+enterprisearena2026,human 100\%,agents 16--80\%,up to -84pp,long horizon,no
+bigfinancebench2026,rubric 58.8\%,answer 44.3\%,-14.5pp,process vs.\ outcome,no

@@ -1,6 +1,6 @@
 # The CFO-Office Task Taxonomy — v1.2 (2026-07-16; v1.1 ratified at Checkpoint 3; v1.2 completeness-audit amendments pending human ratification)
 
-> Refined from INSTRUCTIONS.md §3 seed. Two levels: pillar → leaf. Each leaf carries a
+> Refined from the project brief seed taxonomy. Two levels: pillar → leaf. Each leaf carries a
 > one-line OPERATIONAL DEFINITION used for matrix-scoring consistency (Phase 3): a benchmark
 > "covers" a leaf only if its tasks fall within the definition.
 > v1.0 will follow the corpus cross-check (leaf additions/changes documented in §Changelog).
@@ -105,7 +105,7 @@ stands as v1.0. Emerging empty/near-empty cells (research-agenda payload, to be 
 in Phase 3): treasury ops (3.1/3.2/3.4), tax provision & transfer pricing (4.1/4.3),
 company-side IR (5.x), SOX/controls (1.6), consolidation (1.3), close orchestration as a
 BENCHMARK (1.4), end-to-end variance analysis (2.3), finance data governance (9.2). This
-matches INSTRUCTIONS.md §4 expectations — now verified against fetched texts rather than assumed.
+matches the project brief expectations — now verified against fetched texts rather than assumed.
 
 **Figure:** `paper/figures/cfo_taxonomy.tex` (TikZ, compiles standalone; preview
 `cfo_taxonomy.pdf`, single-column sized, verified overlap-free).

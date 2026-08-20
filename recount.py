@@ -78,6 +78,17 @@ def main():
     core_t, core_none = tally(core)
     all_t, all_none = tally(gov)
 
+    # PRISMA screening reconciliation, checked (not just reported): of 120
+    # screened, 46 were straight yes/13 pending-that-entered-corpus give the
+    # 59 search-derived corpus rows, plus 1 identified outside the search =
+    # 60-item corpus; 48 remain genuinely unresolved.
+    resolution = [r.get("resolution", "") for r in screening]
+    n_unresolved = sum(1 for x in resolution if x == "unresolved:no-decision-at-cutoff")
+    n_resolved_into_corpus = sum(1 for x in resolution if x == "resolved:entered-corpus")
+    n_yes = sum(1 for r in screening if (r.get("final_include") or "").strip() == "yes")
+    n_search_derived = n_yes + n_resolved_into_corpus
+    n_outside_search = len(corpus) - n_search_derived
+
     got = {
         "screened": len(screening),
         "corpus": len(corpus),
@@ -89,7 +100,17 @@ def main():
         "cells": cells,
         "core_none": core_none,
         "all_none": all_none,
+        "prisma_unresolved": n_unresolved,
+        "prisma_resolved_into_corpus": n_resolved_into_corpus,
+        "prisma_search_derived_corpus": n_search_derived,
+        "prisma_outside_search": n_outside_search,
     }
+    ASSERTED.update({
+        "prisma_unresolved": 48,
+        "prisma_resolved_into_corpus": 13,
+        "prisma_search_derived_corpus": 59,
+        "prisma_outside_search": 1,
+    })
 
     # Inter-coder agreement, recomputed rather than quoted.
     try:
