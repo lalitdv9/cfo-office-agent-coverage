@@ -1,8 +1,20 @@
+"""
+build_matrix.py -- rebuilds coverage_matrix.csv from its inputs.
+
+NOTE ON REPRODUCIBILITY: this script's second input, matrix_rows_agent.csv,
+was a working-directory scratch file (per-paper long-form scoring rationale)
+that was never included in the released artifact set. Without it, this script
+cannot run end-to-end from this repo alone -- coverage_matrix.csv is the
+released, authoritative output, and recount.py verifies every count in the
+paper against it directly. Use recount.py to check the paper; use this file
+only to see how the matrix was assembled.
+"""
+
 #!/usr/bin/env python3
 """Consolidate coverage matrix from scaffold + agent rows + direct-read rows.
 Reproducible build: run from cfo-agents-survey/ root. 2026-07-16."""
 import csv, os
-os.chdir(os.path.dirname(os.path.abspath(__file__)) + '/..')
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 LEAVES = ['1.1','1.2','1.3','1.4','1.5','1.6','1.7','1.8','2.1','2.2','2.3','2.4','2.5','2.6','2.7',
           '3.1','3.2','3.3','3.4','4.1','4.2','4.3','4.4','5.1','5.2','5.3','6.1','6.2','6.3',
@@ -21,10 +33,10 @@ def parse_cells(s):
     return out
 
 rows = {}
-with open('matrix/coverage_matrix.csv') as f:          # scaffold (18)
+with open('coverage_matrix.csv') as f:          # scaffold (18)
     for r in csv.DictReader(f): rows[r['bibkey']] = r
 
-with open('matrix/matrix_rows_agent.csv') as f:        # agent + direct reads
+with open('matrix_rows_agent.csv') as f:        # agent + direct reads
     for r in csv.DictReader(f):
         cells = parse_cells(r['leaf_cells'])
         rec = {'bibkey':r['bibkey'],'band':r['band'],'eval_method':r['eval_method'],
@@ -86,7 +98,7 @@ for bk, band in [('xbrltagrec2026','core'),('acctreasoning2025','core'),('finrul
 
 order_band = {'core':0,'benchmark+system':0,'cross-domain':1,'adjacent':2,'audit':3}
 out = sorted(rows.values(), key=lambda r:(order_band.get(r['band'].split(' ')[0],4), r['bibkey']))
-with open('matrix/coverage_matrix.csv','w',newline='') as f:
+with open('coverage_matrix.csv','w',newline='') as f:
     w = csv.DictWriter(f, fieldnames=HDR); w.writeheader()
     for r in out: w.writerow({k:r.get(k,'') for k in HDR})
 
