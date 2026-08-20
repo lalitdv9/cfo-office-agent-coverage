@@ -7,7 +7,7 @@
 ## 1. Research questions
 
 - **RQ1:** What LLM-based / agentic AI systems and benchmarks target corporate finance *function* tasks (Office of the CFO), as opposed to financial-markets tasks?
-- **RQ2:** Which CFO-office functions (per the taxonomy in `taxonomy/cfo_task_tree.md`) are covered by existing benchmarks/systems, and which are unmeasured?
+- **RQ2:** Which CFO-office functions (per the taxonomy in `cfo_task_tree.md`) are covered by existing benchmarks/systems, and which are unmeasured?
 - **RQ3:** What evaluation methodologies do these works use (exact-match, rubric/LLM-judge, human expert, execution-based), and on what data realism level?
 
 ## 2. Databases and search interfaces
@@ -80,7 +80,7 @@ n_screened_in). Families (expanded during execution as terms emerge):
 2. **Title/abstract screen:** each candidate → `screening.csv` with `include_ta` ∈ {yes,no,maybe} + one-line reason keyed to I/E criteria.
 3. **Full-text screen:** candidates passing (2) get their landing page + full text fetched; final `include` decision with reason. Every included paper's ID verified to resolve (title on landing page matches title in corpus CSV).
 4. **Corpus entry:** included papers → `included_papers.csv` (bibkey, title, authors, year, venue, arxiv_id/doi, url, category, preprint flag).
-5. **Flow accounting:** PRISMA 2020 numbers (identified / deduplicated / screened / full-text assessed / included, with exclusion reasons at each stage) → `prisma_flow.md`.
+5. **Flow accounting:** PRISMA 2020 numbers (identified / deduplicated / screened / full-text assessed / included, with exclusion reasons at each stage) were tracked in the internal `prisma_flow.md` working file (not part of this release); the released `screening.csv` (with its `resolution` column) and `recount.py` reproduce and check these numbers directly.
 
 Single-screener design (one AI screener, human review at Checkpoint 1) — disclosed in the
 paper's methodology section. No dual-screener kappa is claimable; the mitigations are the
@@ -91,7 +91,8 @@ public search log and the human checkpoint.
 Search explicitly for surveys/position papers covering agents + {CFO, corporate finance
 function, accounting, FP&A, financial close, controllership} in 2025–2026. If any is found
 that organizes the CFO-office space (not markets, not audit-only): STOP per the project brief
-§2.4, document in PROGRESS.md, and hand the pivot decision to the human.
+§2.4, document in the internal progress log (PROGRESS.md, not part of this release), and hand
+the pivot decision to the human.
 
 ## 9. Expected corpus size
 
@@ -104,5 +105,5 @@ protocol v1.1 with date.
 | Date | Deviation | Reason |
 |------|-----------|--------|
 | 2026-07-16 | D1 (arXiv native search UI and export API) unusable: arxiv.org robots.txt disallows /search and /api for our fetch tool; egress proxy also blocks direct API access. Replaced with domain-restricted web search over arxiv.org. Consequence: `n_results` in search_log.csv = number of search-engine results returned, NOT arXiv's total-hits count. /abs/ and /html/ pages remain directly fetchable, so verification fetches are unaffected. | Technical environment constraint; logged per-query in search_log.csv rows 2-3. |
-| 2026-07-16 | Single-session parallel execution: seed verification, sweep, novelty check, and venue-sweep were executed by four parallel AI sub-agents; all extraction traceable to fetched pages; per-query logs in search_log.csv, novelty_check.md, audit_overlap.md. | Time-boxing within Phase 1 window. |
-| 2026-07-21 | D7: targeted post-hoc search on process standardization x agent deployment (user direction), outside the PRISMA screening window; results used as background citations only, no matrix rows added; see standardization_research.md | User checkpoint: ground a proposed §7 paragraph before adding it |
+| 2026-07-16 | Single-session parallel execution: seed verification, sweep, novelty check, and venue-sweep were executed by four parallel AI sub-agents; all extraction traceable to fetched pages. Per-query logs: `search_log.csv` (released) and `notes/audit_overlap.md` (released); the novelty-check and grey-literature per-query logs (`novelty_check.md`, `grey_literature.md`) were internal working files, not part of this release. | Time-boxing within Phase 1 window. |
+| 2026-07-21 | D7: targeted post-hoc search on process standardization x agent deployment (user direction), outside the PRISMA screening window; results used as background citations only, no matrix rows added; logged in the internal `standardization_research.md` (not part of this release). | User checkpoint: ground a proposed §7 paragraph before adding it |

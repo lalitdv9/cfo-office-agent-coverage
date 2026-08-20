@@ -12,7 +12,7 @@ only to see how the matrix was assembled.
 
 #!/usr/bin/env python3
 """Consolidate coverage matrix from scaffold + agent rows + direct-read rows.
-Reproducible build: run from cfo-agents-survey/ root. 2026-07-16."""
+Provenance build: run from the repository root. 2026-07-16."""
 import csv, os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
@@ -60,37 +60,38 @@ def add(bibkey, band, ev, dr, sc, hl, cells, note):
 add('fintagging2025','core','zero-shot deterministic extraction+alignment metrics',
     'real XBRL/US-GAAP reporting content (text+tables)','single-turn structured extraction (non-agentic)',
     'full-scope table-aware XBRL tagging vs 10k+ US-GAAP taxonomy (FinNI+FinCL); results tables not parsed',
-    '1.7:P','corpus/notes/fintagging2025.md')
+    '1.7:P','notes/fintagging2025.md')
 add('finsheetbench2026','adjacent','deterministic QA/numeric-reasoning accuracy',
     'synthetic, modeled on real PE fund structures','single-turn QA over serialized spreadsheets',
     "best Gemini 3.1 Pro 82.4% over 24 files; largest file (152 companies, 8 funds) avg 48.6% vs 86.2% easiest (Abstract)",
-    '2.5:P; 6.2:P','corpus/notes/finsheetbench2026.md')
+    '2.5:P; 6.2:P','notes/finsheetbench2026.md')
 add('finauditing2025','core','zero-shot unified retrieval/classification/reasoning metrics',
     'real US-GAAP XBRL filings','single-turn multi-document reasoning (non-agentic)',
     "13 LLMs: 'accuracy drops of up to 60-90% when reasoning over hierarchical multi-document structures' (Abstract)",
-    '1.7:P','corpus/notes/finauditing2025.md')
-# from ft_decisions_D/E full-text screenings (cells from those CSVs/notes)
+    '1.7:P','notes/finauditing2025.md')
+# from the internal ft_decisions_D/E full-text-screening worksheets
+# (working-directory scratch CSVs, not part of this release; cells transcribed into notes/)
 add('coffeebench2026','cross-domain','execution-based simulation (net-income KPI)',
     'synthetic multi-agent coffee-economy sim (Sakana AI + KPMG AZSA)','long-horizon multi-agent (ReAct, 90 days)',
     'GPT-5.5 best +3109 net income vs passive -2765; agent state incl. AR/AP+cash, net-30 invoices, bad-debt writeoffs',
-    '3.1:P; 7.1:P; 7.2:P','corpus/notes/2606_16613.md')
+    '3.1:P; 7.1:P; 7.2:P','notes/2606_16613.md')
 add('auditcopilot2025','audit','F1 vs pseudo-labels (circularity flagged) + synthetic labels',
     'synthetic ledgers (5000 IDs, 1% anomalies) + real anonymized ledger','single-turn anomaly detection (prompt-tuned open-weight LLMs)',
     'Mistral-8B F1 0.94 vs IsolationForest 0.68 (synthetic); Gemma-7B 0.83 (real)',
-    '1.1:P','corpus/notes/2512_02726.md')
+    '1.1:P','notes/2512_02726.md')
 add('sheetagent2024','cross-domain','SheetRM benchmark (317 exam-sourced tasks); execution checks',
     'real exam-sourced workbooks incl. finance assets (PayrollSummary, Deposit journal, BudgetForecast, TaxFilingSummary)',
     'multi-step spreadsheet agent (Planner/Informer/Retriever)',
     'general spreadsheet agent; analysis restricted to finance-workbook subset per E6 rule',
-    '2.5:P; 7.3:P','corpus/notes/2403_03636.md')
+    '2.5:P; 7.3:P','notes/2403_03636.md')
 add('spreadsheetarena2026','cross-domain','live pairwise human preference (4,357 votes) + 52-battle expert rubric study',
     'live arena prompts incl. dedicated Corporate Finance & FP&A category','single-shot end-to-end workbook generation (16 models)',
     'finance expert-rubric study: mean expert rating 2.87/5 on DCF/LBO/waterfall prompts; models fail professional modeling conventions',
-    '2.5:F','corpus/notes/2603_10002.md')
+    '2.5:F','notes/2603_10002.md')
 add('theagentcompany2024','cross-domain','checkpoint-based deterministic graders',
     'simulated software company (GitLab/ownCloud/Plane/Rocket.Chat + LLM NPCs)','long-horizon multi-app single agent (175 tasks)',
     'expert-curated 12-task Finance subset (e.g., IRS Form 6765 from company financials); Finance among WORST categories; top agent 30% overall',
-    '4.2:P; 2.5:P','corpus/notes/2412_14161.md')
+    '4.2:P; 2.5:P','notes/2412_14161.md')
 # pending rows (no cells; listed for completeness)
 for bk, band in [('xbrltagrec2026','core'),('acctreasoning2025','core'),('finrulebench2026','core'),
                  ('finverbench2026','core'),('lava2025','audit'),('xbrlagent2024','core')]:

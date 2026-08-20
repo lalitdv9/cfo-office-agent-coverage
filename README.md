@@ -22,7 +22,7 @@ number disagrees with the manuscript.
 |---|---|
 | `protocol.md` | Registered protocol: research questions, databases, time window (Jan 2023 – 16 Jul 2026), inclusion/exclusion criteria, and the logged search deviations |
 | `search_log.csv` | Every query run |
-| `screening.csv` | All 120 title/abstract records with decisions and exclusion codes. The `resolution` column splits the 61 rows marked `pending`: 13 `resolved:entered-corpus` (later read and admitted) and 48 `unresolved:no-decision-at-cutoff`. With 46 straight `yes` decisions this gives the 59 search-derived corpus records; a 60th was identified outside the systematic search. |
+| `screening.csv` | All 120 title/abstract records with decisions and exclusion codes. `final_include` is the final decision (`yes`/`no`/`pending`); the `resolution` column records provenance for rows that were pending at the title/abstract cutoff. 13 of them, marked `resolved:entered-corpus`, were later read and admitted, so they carry `final_include=yes` with `resolution` retained as the provenance flag; 48 remain `unresolved:no-decision-at-cutoff` (`final_include=pending`). This gives 59 search-derived corpus records (46 straight `yes` + 13 later admissions); a 60th was identified outside the systematic search. |
 | `included_papers.csv` | The 60-item corpus, with per-row source-quality flags (`preprint`, `verification`) |
 | `notes/` | Per-paper evidence notes; each reported number traces to an exact quotation with its section |
 | `coverage_matrix.csv` | Leaf-level coverage: 38 eligible rows (32 scored, 6 pending) × 34 leaves |

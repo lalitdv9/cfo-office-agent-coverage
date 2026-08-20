@@ -79,14 +79,17 @@ def main():
     all_t, all_none = tally(gov)
 
     # PRISMA screening reconciliation, checked (not just reported): of 120
-    # screened, 46 were straight yes/13 pending-that-entered-corpus give the
-    # 59 search-derived corpus rows, plus 1 identified outside the search =
-    # 60-item corpus; 48 remain genuinely unresolved.
+    # screened, 59 corpus rows are search-derived (final_include=yes) -- 46
+    # straight yes plus 13 that were pending at the title/abstract cutoff and
+    # were later read and admitted. Those 13 carry final_include=yes and keep
+    # resolution=resolved:entered-corpus as a provenance flag. A 60th corpus
+    # item was identified outside the systematic search; 48 screened rows
+    # remain genuinely unresolved (final_include=pending).
     resolution = [r.get("resolution", "") for r in screening]
     n_unresolved = sum(1 for x in resolution if x == "unresolved:no-decision-at-cutoff")
     n_resolved_into_corpus = sum(1 for x in resolution if x == "resolved:entered-corpus")
-    n_yes = sum(1 for r in screening if (r.get("final_include") or "").strip() == "yes")
-    n_search_derived = n_yes + n_resolved_into_corpus
+    n_search_derived = sum(1 for r in screening if (r.get("final_include") or "").strip() == "yes")
+    n_straight_yes = n_search_derived - n_resolved_into_corpus
     n_outside_search = len(corpus) - n_search_derived
 
     got = {
@@ -102,14 +105,32 @@ def main():
         "all_none": all_none,
         "prisma_unresolved": n_unresolved,
         "prisma_resolved_into_corpus": n_resolved_into_corpus,
+        "prisma_straight_yes": n_straight_yes,
         "prisma_search_derived_corpus": n_search_derived,
         "prisma_outside_search": n_outside_search,
     }
     ASSERTED.update({
         "prisma_unresolved": 48,
         "prisma_resolved_into_corpus": 13,
+        "prisma_straight_yes": 46,
         "prisma_search_derived_corpus": 59,
         "prisma_outside_search": 1,
+    })
+
+    # Reliability table (Table 2) split, checked against the source CSV: of the
+    # 7 basic-vs-composed candidate pairs, 5 appear in the table and 2 are held
+    # out (documented in reliability_synthesis_README.md).
+    reliability = rows("reliability_synthesis.csv")
+    n_rel_included = sum(
+        1 for r in reliability
+        if (r.get("include_in_table") or "").strip().lower() == "yes"
+    )
+    n_rel_excluded = len(reliability) - n_rel_included
+    got["reliability_included"] = n_rel_included
+    got["reliability_excluded"] = n_rel_excluded
+    ASSERTED.update({
+        "reliability_included": 5,
+        "reliability_excluded": 2,
     })
 
     # Inter-coder agreement, recomputed rather than quoted.

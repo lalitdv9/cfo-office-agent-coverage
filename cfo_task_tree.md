@@ -1,4 +1,4 @@
-# The CFO-Office Task Taxonomy — v1.2 (2026-07-16; v1.1 ratified at Checkpoint 3; v1.2 completeness-audit amendments pending human ratification)
+# The CFO-Office Task Taxonomy — v1.2 (2026-07-16; v1.1 ratified at Checkpoint 3, 2026-07-16; v1.2 completeness-audit amendments ratified at Checkpoint 4, 2026-07-21)
 
 > Refined from the project brief seed taxonomy. Two levels: pillar → leaf. Each leaf carries a
 > one-line OPERATIONAL DEFINITION used for matrix-scoring consistency (Phase 3): a benchmark
@@ -69,8 +69,9 @@ separated "adjacent benchmarks" band in the coverage matrix (code ADJ below).
 
 ## Corpus cross-check (v1.0, from full-text-verified papers as of 2026-07-16)
 
-Evidence per leaf from the 22 full-text-verified corpus items (leaf tags in
-`search/ft_decisions_*.csv` and `corpus/notes/`). ● = full-workflow coverage claimed by
+Evidence per leaf from the 22 full-text-verified corpus items (leaf tags in `notes/`, and
+in the internal `ft_decisions_*.csv` full-text-screening worksheets, not part of this
+release). ● = full-workflow coverage claimed by
 at least one paper; ◐ = partial/subtask only; — = no verified coverage found yet.
 27 records remain in full-text screening; tags may still be added, but every pending
 record's title/abstract was checked — none plausibly fills the empty pillars below.
@@ -107,8 +108,8 @@ company-side IR (5.x), SOX/controls (1.6), consolidation (1.3), close orchestrat
 BENCHMARK (1.4), end-to-end variance analysis (2.3), finance data governance (9.2). This
 matches the project brief expectations — now verified against fetched texts rather than assumed.
 
-**Figure:** `paper/figures/cfo_taxonomy.tex` (TikZ, compiles standalone; preview
-`cfo_taxonomy.pdf`, single-column sized, verified overlap-free).
+**Figure (internal build, not part of this artifact release):** `cfo_taxonomy.tex` /
+`cfo_taxonomy.pdf` (TikZ, compiles standalone, single-column sized, verified overlap-free).
 
 ## Completeness audit v1.2 (2026-07-16) — one-by-one check against APQC PCF 8.0 "Manage Financial Resources"
 
@@ -154,7 +155,8 @@ FinBalance asset-disposal/rollforward concept flags → both ◐. 2.7 — no ben
 → new EMPTY column (added to the research-agenda payload).
 
 ## Changelog
-- v0.9 (2026-07-16): initial refinement of INSTRUCTIONS §3 seed. Changes from seed:
+- v0.9 (2026-07-16): initial refinement of the project-brief §3 seed taxonomy (internal
+  working document, not part of this release). Changes from seed:
   (a) split seed pillar-1 "reporting" into 1.4 close orchestration vs 1.7 statutory/external
   reporting (corpus items separate cleanly: close-orchestration systems vs XBRL/disclosure
   benchmarks); (b) "spreadsheet financial modeling" placed as leaf 2.5 with cross-cutting
@@ -167,7 +169,7 @@ FinBalance asset-disposal/rollforward concept flags → both ◐. 2.7 — no ben
   1.8 additionally evidenced by CFAgentBench's unmapped Project Accounting domain);
   definitions of 2.1, 3.1, 3.3, 7.1 extended (capital planning, in-house banking/netting,
   investments, T&E); 1.7 scoping note (ESG disclosure). Figure, matrix columns, and paper
-  updated. PENDING human ratification.
+  updated. **RATIFIED by human at Checkpoint 4 (2026-07-21).**
 - v1.1 (2026-07-16, Phase 3): leaf **7.3 Payroll & workforce compliance ADDED** per Phase-2
   rule "add missing leaves if a benchmark tests something not in the tree": CFAgentBench's
   Payroll & HR domain (112 task specs; certified-payroll WH-347 validation among the 40
