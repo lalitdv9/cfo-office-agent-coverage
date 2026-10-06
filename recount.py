@@ -133,6 +133,17 @@ def main():
         "reliability_excluded": 2,
     })
 
+    # Authority-independent headline (EB1-71): the two control dimensions that
+    # apply to every CFO-office agent are provenance and reliability under
+    # repetition. Count rows that measure BOTH in full (Y); the paper says none.
+    n_prov_rep_full = sum(
+        1 for r in gov
+        if (r["PROV"] or "").strip().upper() == "Y"
+        and (r["REP"] or "").strip().upper() == "Y"
+    )
+    got["prov_and_rep_full"] = n_prov_rep_full
+    ASSERTED["prov_and_rep_full"] = 0
+
     # Inter-coder agreement, recomputed rather than quoted.
     try:
         a = {(r["bibkey"], r["leaf"]): r["committed_code"].strip().lower()
