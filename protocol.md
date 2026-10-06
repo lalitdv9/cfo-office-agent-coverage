@@ -107,3 +107,48 @@ protocol v1.1 with date.
 | 2026-07-16 | D1 (arXiv native search UI and export API) unusable: arxiv.org robots.txt disallows /search and /api for our fetch tool; egress proxy also blocks direct API access. Replaced with domain-restricted web search over arxiv.org. Consequence: `n_results` in search_log.csv = number of search-engine results returned, NOT arXiv's total-hits count. /abs/ and /html/ pages remain directly fetchable, so verification fetches are unaffected. | Technical environment constraint; logged per-query in search_log.csv rows 2-3. |
 | 2026-07-16 | Single-session parallel execution: seed verification, sweep, novelty check, and venue-sweep were executed by four parallel AI sub-agents; all extraction traceable to fetched pages. Per-query logs: `search_log.csv` (released) and `notes/audit_overlap.md` (released); the novelty-check and grey-literature per-query logs (`novelty_check.md`, `grey_literature.md`) were internal working files, not part of this release. | Time-boxing within Phase 1 window. |
 | 2026-07-21 | D7: targeted post-hoc search on process standardization x agent deployment (user direction), outside the PRISMA screening window; results used as background citations only, no matrix rows added; logged in the internal `standardization_research.md` (not part of this release). | User checkpoint: ground a proposed §7 paragraph before adding it |
+
+## 11. Coding procedure (added 2026-10-06, EB1-72)
+
+This section records how cells were coded, limited to what the released files show.
+Anything the release does not record is marked **not recorded** rather than reconstructed.
+
+**What was coded.**
+- `coverage_matrix.csv`: for each eligible benchmark/system row and each of the 34 taxonomy
+  leaves, `F` (end-to-end), `P` (partial/subtask only) or blank (no coverage found).
+- `governance_scorecard.csv`: for each row, provenance / segregation of duties / deterministic
+  tie-out / repetition reliability as `Y` (measured), `P` (partial or indirect) or `N` (not
+  measured), with a per-row justification.
+
+**Who coded.** An AI model, working from fetched full text. Human involvement is limited to
+the rulings recorded in the evidence notes and this protocol (for example the Checkpoint-1
+ruling that places investor-side analyst-research benchmarks in the adjacent band). No human
+coded any matrix or scorecard cell.
+
+**Inputs the coder saw.** The fetched full text of each paper (body and appendices where
+available), recorded per paper in `notes/<id>.md` with the fetch date and URL. Cells are
+assigned from task descriptions and reported results, not from abstracts (manuscript §3).
+Rows whose full text was not read are marked `PENDING-FULLTEXT` and excluded from every
+count.
+
+**Rubric.** The one-line operational definition of every leaf was fixed before scoring and
+is in `cfo_task_tree.md`. `F` requires the benchmark to cover the leaf's workflow end to end;
+`P` covers a subtask or an indirect measure; blank means no verified coverage. Governance
+codes follow each paper's reported evaluation design: a dimension the paper evaluates but
+does not report is scored `N`.
+
+**Evidence notes.** Each non-empty cell traces to an exact quotation and its section in the
+paper's note file, and to a justification in the matrix or scorecard.
+
+**Not recorded in this release:**
+- the verbatim coding prompt;
+- whether each evidence note was written before or after its cell code was assigned;
+- the exact slice of each paper supplied to the coder when a paper was long.
+These are open items for the authors to confirm before the paper claims them.
+
+**Re-code check (what it is and is not).** `intercoder_sample.csv` holds 24 committed cells
+and `intercoder_recode.csv` holds a second AI pass over the same cells (columns `my_code`,
+`reason`). The two agree on 23 of 24 cells. The second pass is the same AI system re-coding
+the same cells, so this figure measures **rubric determinism (self-consistency), not
+independent inter-rater reliability**, and it must not be reported as a human-coder kappa.
+Independent human validation of a sample is still outstanding (Linear EB1-73).
