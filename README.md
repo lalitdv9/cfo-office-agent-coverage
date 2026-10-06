@@ -1,6 +1,6 @@
 # The Office of the CFO as a Distinct, Under-Benchmarked Domain for AI Agents
 
-Released artifacts for the FinNLP 2026 submission *Capability Is Not
+Released artifacts for the paper *Capability Is Not
 Deployability: The Office of the CFO as a Distinct, Under-Benchmarked Domain for
 AI Agents*. Anonymous for review.
 
@@ -20,10 +20,11 @@ number disagrees with the manuscript.
 
 | File | What it is |
 |---|---|
-| `protocol.md` | Registered protocol: research questions, databases, time window (Jan 2023 – 16 Jul 2026), inclusion/exclusion criteria, and the logged search deviations |
+| `protocol.md` | Registered protocol (§11 documents the coding procedure and what the re-code check does and does not show): research questions, databases, time window (Jan 2023 – 16 Jul 2026), inclusion/exclusion criteria, and the logged search deviations |
 | `search_log.csv` | Every query run |
 | `screening.csv` | All 120 title/abstract records with decisions and exclusion codes. `final_include` is the final decision (`yes`/`no`/`pending`); the `resolution` column records provenance for rows that were pending at the title/abstract cutoff. 13 of them, marked `resolved:entered-corpus`, were later read and admitted, so they carry `final_include=yes` with `resolution` retained as the provenance flag; 48 remain `unresolved:no-decision-at-cutoff` (`final_include=pending`). This gives 59 search-derived corpus records (46 straight `yes` + 13 later admissions); a 60th was identified outside the systematic search. |
 | `included_papers.csv` | The 60-item corpus, with per-row source-quality flags (`preprint`, `verification`) |
+| `pending_48_resolution.csv` | Post-cutoff decision for each of the 48 records unresolved at the 16 July 2026 cutoff: decision, leaves touched, effect on the eight empty leaves, evidence grade (title + screening note, abstract, full text, or public task prompts) and reason. AI-coded and not yet ratified by a human; it does not change any count at the cutoff. `recount.py` checks its totals (39 cleared, 9 not ruled out). |
 | `notes/` | Per-paper evidence notes; each reported number traces to an exact quotation with its section |
 | `coverage_matrix.csv` | Leaf-level coverage: 38 eligible rows (32 scored, 6 pending) × 34 leaves |
 | `governance_scorecard.csv` | Provenance / segregation-of-duties / tie-out / repetition coding, with per-row justification |

@@ -9,9 +9,9 @@ the CFO as a Distinct, Under-Benchmarked Domain for AI Agents*. Every number in
 the paper must be derivable from the files here. See `README.md` for the file
 map and `protocol.md` for the registered protocol.
 
-The FinNLP 2026 submission (#111) was rejected on 31 Aug 2026 (scores
-6/6/6/4/7, mean 5.8). The review points are already tracked in Linear and the
-outcome is recorded in Notion; use those, do not recreate them (see below).
+An earlier version was reviewed and not accepted. The reviewers' points are
+tracked in Linear and the reasoning is recorded in Notion; use those, do not
+recreate them (see below).
 
 ## Ground rules (apply to all work)
 
@@ -45,22 +45,20 @@ to each other; never copy content between them.
 This project already exists in both tools. **Find and update the existing items;
 never create a parallel project, page or duplicate issue.**
 
-- Linear project: `Q · FinNLP #111 (LIVE submission — archival, do not lose)`.
-  Look it up with `list_projects` / `list_issues`; the team is the one that owns
-  that project.
-- Linear issues in it: EB1-45 (48 unresolved records, Done), EB1-46 (make the
-  four dimensions conditional), EB1-47 (second human coder), EB1-48 (re-anchor
-  to current APQC PCF), EB1-49 (cut to one paper), EB1-50 (decide: build the
-  runnable benchmark or ship as a resource paper). EB1-10 and EB1-24 are closed.
-- Notion: the paper's row in the author's evidence binder, found by searching
-  `Capability Is Not Deployability`. It records the decision and the path back.
-- **EB1-50 is the gating decision.** It says to decide before doing the other
-  work. Do not start building a benchmark or restructuring the paper until the
-  user has decided it, and remind them if it is overdue.
-- **Keep private matters out of this repo.** The Linear team and the Notion
-  binder also track unrelated personal and career items. Never copy those into
-  commits, `CLAUDE.md`, notes or any released file, and do not read unrelated
-  items.
+- Linear: the current project is `CFO-office paper — resubmission round 2`
+  (find it with `list_projects`). The earlier round's project is archived; do
+  not edit it.
+- Notion: the round-2 decision log, found by searching
+  `resubmission round 2: decision log`.
+- Status (2026-10-06): the resource-paper path was chosen. The open items are
+  tracked as issues in the round-2 project; read them before starting work.
+- **Keep private matters out of this repo.** This repo is public and is
+  mirrored anonymously for reviewers. The tracker workspaces also hold
+  unrelated items: never copy them into commits, `CLAUDE.md`, notes or any
+  released file, never paste issue IDs or tracker names into released files,
+  and do not read unrelated items.
+- **The manuscript source stays out of this repo** (`paper/` is gitignored) so
+  that double-blind review is not compromised.
 
 ## Linear conventions
 
@@ -79,7 +77,7 @@ it. Search first (`list_issues`) to avoid duplicates.**
   `writing`, `benchmark-build`, `admin`.
 - **Priority** follows how many reviewers raised it: 4 reviewers = Urgent/High,
   2 = Medium, 1 = Low.
-- **Parent issue** per rejection round (`Revision after FinNLP 2026 reject`)
+- **Parent issue** per rejection round (e.g. `Revision round N`)
   with sub-issues for each item.
 - **Status flow:** Backlog -> Todo -> In Progress -> In Review -> Done. Move an
   issue to Done only after `recount.py` passes on the final commit.

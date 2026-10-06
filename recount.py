@@ -144,6 +144,18 @@ def main():
     got["prov_and_rep_full"] = n_prov_rep_full
     ASSERTED["prov_and_rep_full"] = 0
 
+    # Post-cutoff resolution of the 48 unresolved screening records
+    # (pending_48_resolution.csv). Counts at the registered cutoff are NOT
+    # changed by it; the paper reports it as a recall audit.
+    res = rows("pending_48_resolution.csv")
+    got["res48_rows"] = len(res)
+    got["res48_cleared"] = sum(
+        1 for r in res if r["empty_leaf_impact"].strip().startswith("none"))
+    got["res48_not_ruled_out"] = sum(
+        1 for r in res if r["empty_leaf_impact"].strip().startswith("not ruled out"))
+    ASSERTED.update({"res48_rows": 48, "res48_cleared": 39,
+                     "res48_not_ruled_out": 9})
+
     # Inter-coder agreement, recomputed rather than quoted.
     try:
         a = {(r["bibkey"], r["leaf"]): r["committed_code"].strip().lower()
