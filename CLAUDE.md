@@ -9,9 +9,9 @@ the CFO as a Distinct, Under-Benchmarked Domain for AI Agents*. Every number in
 the paper must be derivable from the files here. See `README.md` for the file
 map and `protocol.md` for the registered protocol.
 
-The FinNLP 2026 submission was rejected (scores 7/6/6/6/4). The repo is now in
-revision for resubmission. The review points are tracked in Linear and the
-reasoning is documented in Notion, as described below.
+The FinNLP 2026 submission (#111) was rejected on 31 Aug 2026 (scores
+6/6/6/4/7, mean 5.8). The review points are already tracked in Linear and the
+outcome is recorded in Notion; use those, do not recreate them (see below).
 
 ## Ground rules (apply to all work)
 
@@ -42,13 +42,25 @@ Rule of thumb: if it has a "done" state, it is a Linear issue. If it explains
 *why*, it is a Notion page. If it is a result, it lives in git. Link all three
 to each other; never copy content between them.
 
-Before first use in a session, confirm which Linear team/project and Notion
-parent page to use (ask the user once; do not guess). Record the answer below
-and keep this file updated:
+This project already exists in both tools. **Find and update the existing items;
+never create a parallel project, page or duplicate issue.**
 
-- Linear team: `TODO: fill in`
-- Linear project: `Resubmission: CFO-office agent coverage` (create if missing)
-- Notion parent page: `TODO: fill in`
+- Linear project: `Q · FinNLP #111 (LIVE submission — archival, do not lose)`.
+  Look it up with `list_projects` / `list_issues`; the team is the one that owns
+  that project.
+- Linear issues in it: EB1-45 (48 unresolved records, Done), EB1-46 (make the
+  four dimensions conditional), EB1-47 (second human coder), EB1-48 (re-anchor
+  to current APQC PCF), EB1-49 (cut to one paper), EB1-50 (decide: build the
+  runnable benchmark or ship as a resource paper). EB1-10 and EB1-24 are closed.
+- Notion: the paper's row in the author's evidence binder, found by searching
+  `Capability Is Not Deployability`. It records the decision and the path back.
+- **EB1-50 is the gating decision.** It says to decide before doing the other
+  work. Do not start building a benchmark or restructuring the paper until the
+  user has decided it, and remind them if it is overdue.
+- **Keep private matters out of this repo.** The Linear team and the Notion
+  binder also track unrelated personal and career items. Never copy those into
+  commits, `CLAUDE.md`, notes or any released file, and do not read unrelated
+  items.
 
 ## Linear conventions
 
@@ -76,39 +88,16 @@ it. Search first (`list_issues`) to avoid duplicates.**
 - Comment on the issue when a decision changes scope. Do not close issues for
   work that was skipped; mark them Canceled with the reason.
 
-### Seed backlog from the reviews
-
-| Issue | Label | Priority | Raised by |
-|---|---|---|---|
-| Clarify applicability of the four dimensions by agent type and use one wording (required/default/minimum) | governance-rule | High | 7xVT, BgC8, W11j, wcr8 |
-| Resolve the 48 unresolved screening records and recount | search-recall | High | B5gB, 7xVT, BgC8, wcr8 |
-| Human second coder on a sample; document coding procedure and coder context | coding-validity | High | B5gB, wcr8, 7xVT |
-| Cut and refocus the manuscript; lead with the decision rule and empty cells | writing | Medium | W11j, B5gB |
-| Re-check taxonomy against current APQC PCF version | taxonomy | Medium | BgC8 |
-| Merge contribution 3 into 1 and 2 | writing | Low | B5gB |
-| Argue why CFO-specific; note whether four dimensions are sufficient | governance-rule | Low | wcr8 |
-| (Optional) Build a runnable tax-provision benchmark task | benchmark-build | Medium | W11j |
-| Choose resubmission venue | admin | Medium | self |
-
 ## Notion conventions
 
 **Create pages only for durable content, and say where you created them.** If
 no parent page is given, create a private draft and tell the user.
 
-Maintain this structure under the parent page:
-
-1. **Revision hub**: one page with the review scores, the themes table above,
-   and links to each Linear issue.
-2. **Decision log**: one entry per decision, newest first. Each entry has
-   *Date, Decision, Alternatives considered, Reason, Linked issue, Linked
-   commit*. Log scope choices, taxonomy changes, inclusion rulings and any
-   claim that was weakened.
-3. **Review responses**: one page per reviewer with the verbatim point, our
-   response, and what changed in the paper (section and line).
-4. **Protocol changelog**: mirrors deviations recorded in `protocol.md`. The
-   repo file is authoritative; Notion explains the reasoning.
-5. **Venue notes**: deadlines, page limits, track fit, reviewer norms for each
-   candidate venue.
+Update the existing paper page rather than creating new structure. Put
+decisions and their reasons there (date, decision, alternatives, reason, linked
+Linear issue, linked commit). Only add a child page when content is too long for
+the row, such as a per-reviewer response page or venue notes. If the user wants
+a fuller hub, propose it first.
 
 Page rules:
 - Start every page with a one-line summary, then the date and last editor.
